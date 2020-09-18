@@ -6,13 +6,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const fetchData = () => {
     fetch('https://randomuser.me/api/')
-    .then(res => res.json()).then(data => console.log(data['results']))
+    .then(res => res.json()).then(data => createPerson(data['results']))
       
   }
 
+  fetchData()
   const createPerson = personObj => {
     const profilePic = document.querySelector('#profile_picture')
-    profilePic.src = personObj.picture.thumbnail
+    profilePic.src = personObj.picture
 
     const fullName = document.querySelector('#fullname')
     fullName.innerText = `${personObj.name.first} ${personObj.name.last} ${personObj.name.title}`
@@ -35,6 +36,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const postcode = document.querySelector('#postcode')
     postcode.innerText = personObj.location.postcode
 
+    const cell = document.querySelector('#cell')
+    cell.innerText = personObj.cell
+
+    const phone = document.querySelector('#phone')
+    phone.innerText = personObj.phone
+
+    const dob = document.querySelector('#date_of_birth')
+    dob.innerText = personObj.dob.date
   }
 
 });
