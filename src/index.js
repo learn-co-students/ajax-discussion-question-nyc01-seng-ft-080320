@@ -1,5 +1,5 @@
 const fullname = document.getElementById("fullname");
-console.log("CONTENT NOT YET LOADED!", fullname); //what will fullname evaluate to?
+console.log("CONTENT NOT YET LOADED!", fullname); //what will fullname evaluate 2?
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("CONTENT LOADED!");
