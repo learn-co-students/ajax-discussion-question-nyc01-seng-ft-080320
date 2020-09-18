@@ -6,14 +6,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const fetchData = () => {
     fetch('https://randomuser.me/api/')
-    .then(res => res.json()).then(data => createPerson(data['results']))
+    .then(res => res.json()).then(data => createPerson(data['results'][0]))
       
   }
 
   fetchData()
   const createPerson = personObj => {
     const profilePic = document.querySelector('#profile_picture')
-    profilePic.src = personObj.picture
+    profilePic.src = personObj.picture.thumbnail
 
     const fullName = document.querySelector('#fullname')
     fullName.innerText = `${personObj.name.first} ${personObj.name.last} ${personObj.name.title}`
