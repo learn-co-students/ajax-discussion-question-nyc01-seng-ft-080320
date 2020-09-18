@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
       
   }
 
-  fetchData()
   const createPerson = personObj => {
     const profilePic = document.querySelector('#profile_picture')
     profilePic.src = personObj.picture.thumbnail
@@ -45,6 +44,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const dob = document.querySelector('#date_of_birth')
     dob.innerText = personObj.dob.date
   }
+
+  document.addEventListener('click', e => {
+    if (e.target.matches('.btn-primary')) {
+      fetchData()
+    }
+  })
+
 
 });
 
